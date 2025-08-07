@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://lk46w3xpffm0"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="inacio" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0

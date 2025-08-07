@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct4o7j8pxqb7h"]
+
+[ext_resource type="Texture2D" uid="uid://cuc7s846aoqqi" path="res://assets/images/scratch1.png" id="1_k1rcf"]
+
+[node name="Day1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 325.5)
+scale = Vector2(2.39167, 1.77322)
+texture = ExtResource("1_k1rcf")
