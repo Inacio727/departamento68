@@ -1,21 +1,106 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct4o7j8pxqb7h"]
+[gd_scene load_steps=9 format=3 uid="uid://ct4o7j8pxqb7h"]
 
-[ext_resource type="Script" uid="uid://dejd4r5iivdye" path="res://scripts/carteiro.gd" id="1_0bqr7"]
-[ext_resource type="Texture2D" uid="uid://d3x374die1dl4" path="res://assets/images/scratch1.png" id="1_k1rcf"]
+[ext_resource type="Script" uid="uid://c6xsxs5b5wy07" path="res://scripts/day_1.gd" id="1_7wy3m"]
+[ext_resource type="Texture2D" uid="uid://dwrw3rmumi4i1" path="res://assets/sprites/background_lixo.png" id="1_h02fo"]
+[ext_resource type="Texture2D" uid="uid://hmg7n0y6lm4d" path="res://icon.svg" id="2_7wy3m"]
+[ext_resource type="Texture2D" uid="uid://b0jhlsb4khmn3" path="res://assets/sprites/Sprite.png" id="3_ggwyy"]
+[ext_resource type="Texture2D" uid="uid://bqn3opnxeycyv" path="res://assets/sprites/jornal_lixo.png" id="5_ggwyy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h02fo"]
-size = Vector2(480.417, 364.309)
+[sub_resource type="Animation" id="Animation_h02fo"]
+resource_name = "postman_basic"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-58, 344), Vector2(600, 344), Vector2(600, 344), Vector2(1338, 350)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"entregar_jornal"
+}, {
+"args": [],
+"method": &"postman_talk"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7wy3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-58, 344)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ggwyy"]
+_data = {
+&"RESET": SubResource("Animation_7wy3m"),
+&"postman_basic": SubResource("Animation_h02fo")
+}
 
 [node name="Day1" type="Node2D"]
+script = ExtResource("1_7wy3m")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(576, 325.5)
-scale = Vector2(2.39167, 1.77322)
-script = ExtResource("1_0bqr7")
+[node name="BackgroundLixo" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(2.22222, 1.66667)
+texture = ExtResource("1_h02fo")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_k1rcf")
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(644.5, 620)
+scale = Vector2(9.94531, 1.57813)
+texture = ExtResource("2_7wy3m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.209061, -0.845917)
-shape = SubResource("RectangleShape2D_h02fo")
+[node name="Postman" type="Node2D" parent="."]
+position = Vector2(-58, 344)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Postman"]
+libraries = {
+&"": SubResource("AnimationLibrary_ggwyy")
+}
+autoplay = "postman_basic"
+
+[node name="Sprite2D" type="Sprite2D" parent="Postman"]
+texture = ExtResource("3_ggwyy")
+
+[node name="SpeechBubble" type="Panel" parent="Postman"]
+visible = false
+offset_left = 42.0
+offset_top = -187.0
+offset_right = 284.0
+offset_bottom = -124.0
+
+[node name="Label" type="Label" parent="Postman/SpeechBubble"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Aqui o jornal diário."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Jornal" type="Sprite2D" parent="."]
+position = Vector2(631, 606)
+scale = Vector2(0.383696, 0.365025)
+texture = ExtResource("5_ggwyy")
