@@ -1,26 +1,32 @@
-[gd_scene format=3 uid="uid://cqverbgljpwrn"]
+[gd_scene load_steps=3 format=3 uid="uid://cqverbgljpwrn"]
+
+[ext_resource type="Script" uid="uid://belct2ahcvjco" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://cgxkp4dnso4mj" path="res://assets/images/menu_background.png" id="1_yqeox"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.694
+anchor_bottom = 0.926
+offset_right = 0.511963
+offset_bottom = -0.0480347
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vjb58")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(400, 300)
+scale = Vector2(0.625, 0.705882)
+texture = ExtResource("1_yqeox")
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -424.5
-offset_right = 424.5
-offset_bottom = 137.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 100
+offset_right = 849.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 80
 text = "Departamento 68"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1
@@ -29,11 +35,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.5
-offset_top = -36.5
-offset_right = 136.5
-offset_bottom = 36.5
+offset_left = -71.0
+offset_top = -31.5
+offset_right = 71.0
+offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
