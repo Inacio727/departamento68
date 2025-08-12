@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://whca7chc1nl0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_63ij5"]
+
+[node name="DialogPlayer" type="CanvasLayer"]
+
+[node name="TextLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 71.0
+text = "Teste de Texto"
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 160.0
+offset_top = 56.0
+offset_right = 480.0
+offset_bottom = 184.0
+texture = SubResource("CanvasTexture_63ij5")

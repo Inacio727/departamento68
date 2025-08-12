@@ -18,11 +18,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 TransitionScreen="*res://scenes/transition_screen.tscn"
+SignalBus="*res://scripts/SignalBus.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Dialog"
 
 [rendering]
 
