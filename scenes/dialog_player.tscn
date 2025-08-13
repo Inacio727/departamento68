@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://whca7chc1nl0"]
 
-[ext_resource type="Script" uid="uid://1xgfoo3jst0u" path="res://scripts/dialog_player.gd" id="1_5xlil"]
+[ext_resource type="Script" uid="uid://by7d0qimxpt1c" path="res://scripts/dialog_player.gd" id="1_5xlil"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_63ij5"]
 
 [node name="DialogPlayer" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_5xlil")
+scene_text_file = null
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 320.0
@@ -14,10 +15,10 @@ offset_bottom = 128.0
 texture = SubResource("CanvasTexture_63ij5")
 
 [node name="TextLabel" type="Label" parent="."]
+show_behind_parent = true
 offset_left = 9.0
 offset_top = 8.0
 offset_right = 314.0
 offset_bottom = 121.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Teste de Texto"
 autowrap_mode = 1
