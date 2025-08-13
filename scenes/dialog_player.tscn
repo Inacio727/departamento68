@@ -7,7 +7,6 @@
 [node name="DialogPlayer" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_5xlil")
-scene_text_file = null
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 320.0

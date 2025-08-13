@@ -36,12 +36,12 @@ func finish():
 	in_progress = false
 	get_tree().paused = false
 
-func on_display_dialog():
+func on_display_dialog(text_key: String):
 	if in_progress:
 		next_line()
 	else:
 		get_tree().paused = true
 		background.visible = true
 		in_progress = true
-		selected_text = scene_text[text_key].duplicate()
+		selected_text = (scene_text[text_key]).duplicate()
 		show_text()
